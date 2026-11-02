@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Lakehouse - Dashboard de Auditoria</title>
+    <style>
+        :root {
+            --primary: #ec7000; /* Laranja Corporativo Bancário */
+            --dark: #1f1f1f;
+            --light: #f4f4f4;
+            --success: #2e7d32;
+            --text: #333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+        }
+        h1 { margin: 0; font-size: 24px; }
+        .api-status {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+        .card h3 { margin: 0 0 10px 0; color: #666; font-size: 14px; text-transform: uppercase; }
+        .card .value { font-size: 28px; font-weight: bold; color: var(--dark); }
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th { background-color: #fafafa; color: #555; }
+        tr:hover { background-color: #f9f9f9; }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Banking ETL Data Lakehouse — Painel de Controle</h1>
+        <div class="api-status">
+            <span class="status-dot"></span> Conectado à API Index Básica
+        </div>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Pipeline Core</h3>
+            <div class="value">Operational</div>
+        </div>
+        <div class="card">
+            <h3>Arquitetura</h3>
+            <div class="value" style="font-size: 20px;">Data Lakehouse</div>
+        </div>
+        <div class="card">
+            <h3>Ambiente</h3>
+            <div class="value" style="font-size: 20px;">FastAPI Backend</div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <h2>Auditoria de Dados (Camada Silver)</h2>
+        <p style="color: #666; font-size: 14px;">Registros consolidados, validados e limpos a partir de logs do sistema legado bancário.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Transação</th>
+                    <th>CPF Higienizado</th>
+                    <th>Valor do Lote</th>
+                    <th>Status Regulação</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-auditoria">
+                <!-- Simulação de carregamento dinâmico via JavaScript -->
+                <tr>
+                    <td>TXN-LEGACY-1001</td>
+                    <td>12345678900</td>
+                    <td>R$ 2.450,00</td>
+                    <td><span class="badge" style="background: #e8f5e9; color: var(--success);">EFETIVADO</span></td>
+                </tr>
+                <tr>
+                    <td>TXN-LEGACY-1002</td>
+                    <td>98765432199</td>
+                    <td>R$ 150,50</td>
+                    <td><span class="badge" style="background: #e8f5e9; color: var(--success);">EFETIVADO</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Lógica assíncrona JavaScript para consumir a rota index e a camada silver futuramente
+    console.log("Front-end estruturado e indexado com sucesso!");
+</script>
+</body>
+</html>
